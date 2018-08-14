@@ -8,10 +8,10 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 
 const APP_ROUTES: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'paquetes', component: PaquetesComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'contacto', component: ContactoComponent },
+    { path: 'Home', component: HomeComponent },
+    { path: 'Paquetes', component: PaquetesComponent },
+    { path: 'Sobre nosotros', component: AboutComponent },
+    { path: 'Contacto', component: ContactoComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
   
 ];
