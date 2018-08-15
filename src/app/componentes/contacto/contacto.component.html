@@ -1,2 +1,82 @@
-<h1>Contactenos</h1>
-
+<div class="container-fluid">
+    <div class="container box-contacto">
+      <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+  
+          <h2 class="text-center animated fadeIn">Contactenos</h2>
+          <p class="text-center animated fadeIn">Dejanos tu consulta. En breve te contactaremos</p>
+  
+          <form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="" class="animated fadeIn">
+          <div class="row">
+            
+            <div class="col-12 col-md-6 ">
+  
+              <div class="form-group">
+                <label for="nombreApellido">Nombre y Apellido</label>
+                <input type="text" name="nombreApellido" class="form-control" ngModel minlength="5" required placeholder="Nombre y apellido" #nombreApellido="ngModel" [ngClass]="{ 'is-invalid': nombreApellido.errors!=null && nombreApellido.touched, 'is-valid': nombreApellido.errors==null }">
+               
+                <div class="invalid-feedback">
+                    <div *ngIf="nombreApellido.errors?.minlength">
+                      Ingrese como mínimo {{ nombreApellido.errors.minlength.requiredLength }} caracteres
+                    </div> 
+                    <div *ngIf="nombreApellido.errors?.required">
+                      Este campo es requerido                   
+                    </div>
+                </div>
+               
+               
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" ngModel required #email="ngModel" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                [ngClass]="{ 'is-invalid': email.errors!=null && email.touched, 'is-valid': email.errors==null }">
+               
+                <div class="invalid-feedback ">
+                    <div *ngIf="email.errors?.required">
+                        Este campo es requerido                 
+                    </div>
+                    <div *ngIf="email.errors?.pattern">
+                        Ingrese un email válido
+                    </div>
+                </div>
+                
+              </div>
+  
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" name="telefono" class="form-control" ngModel #telefono="ngModel" required placeholder="Teléfono" [ngClass]="{ 'is-invalid': telefono.errors!=null && telefono.touched , 'is-valid': telefono.errors==null }">
+                <!-- pattern="/^([0-9])*$/" -->
+                <div class="invalid-feedback">
+                    <div *ngIf="telefono.errors?.required">
+                        Este campo es requerido                 
+                    </div>         
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="col-12 col-md-6 d-flex align-self-stretch">
+              <div class="form-group w-100">
+                <label for="consulta">Consulta</label>
+                <textarea name="consulta" class="form-control w-100 h-100" rows="5" ngModel required placeholder="Consulta"></textarea>              
+              </div>
+            </div>
+  
+          </div><!-- row-->
+  
+          <div class="row">
+            <div class="col-12 col-md-12">
+              <button [disabled]="!forma.valid" type="submit" class="btn btn-primary btn-block">Enviar</button>
+            </div>
+          </div>
+  
+            
+  
+          </form>
+  
+        </div>
+      </div>
+    </div><!-- container -->
+  </div><!-- container-fluid-->
+  
