@@ -17,7 +17,6 @@ const APP_ROUTES: Routes = [
     { path: 'Sobre nosotros', component: AboutComponent },
     { path: 'Contacto', component: ContactoComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
-  
 ];
 
 @NgModule({

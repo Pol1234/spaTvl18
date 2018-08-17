@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AutosService } from '../../autos.service';
 
 @Component({
   selector: 'app-autos',
   templateUrl: './autos.component.html',
   styleUrls: ['./autos.component.scss']
 })
-export class AutosComponent implements OnInit {
+export class AutosComponent {
 
-  constructor() { }
+  AllAutos: any[]= [];
+  results: any[] = [];
 
-  ngOnInit() {
+  constructor(private _autosServ: AutosService) {
+
+    this._autosServ.getAutos()
+    .subscribe( (data: any) => {
+      console.log(data);
+      this.AllAutos = data;
+    });
   }
+
 
 }

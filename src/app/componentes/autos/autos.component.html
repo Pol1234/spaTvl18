@@ -3,23 +3,33 @@
 
     <div class="row">
         <div class="col-12 col-lg-12">
-            <div class="card-columns">
-
-            <div class="card">
-                <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
-                    <button type="button" class="btn btn-outline-info w-100">mas info</button>
-                </div>
-            </div>
 
 
+
+          
+            <div class="card-columns" *ngFor="let item of AllAutos"> 
+                
+           
+                   
+              <h2 >{{ item.provider.company_name }}</h2>
             
-
-
-            </div>
+                
+                    
+                        <div class="card text-center " *ngFor="let car of item.cars">
+                            <img class="pt-5 pb-2 img-circle" [src]="car.images | noImage" alt="Card image cap">                    
+                            <div class="card-body">
+                                <h6>{{ car.vehicle_info.type }}</h6>
+                                <h6 class="card-title">{{ item.provider.company_name }} </h6>
+                                <p class="card-text">{{ car.estimated_total.currency }} {{ car.estimated_total.amount }}</p>
+                                <p class="card-text">{{ car.vehicle_info.transmission }}</p>
+                                <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+                                <button type="button" class="btn btn-outline-info w-100">mas info</button>      
+                            </div>                    
+                        </div>
+                   
+                
+             </div> 
+            
         </div>
     </div>
 </div>

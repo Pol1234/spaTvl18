@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
-//routes
+/*routes*/
 import { APP_ROUTING } from './app.routes';
 
 import { FormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { FooterComponent } from './componentes/shared/footer/footer.component';
 import { SliderComponent } from './componentes/slider/slider.component';
 import { HotelesComponent } from './componentes/hoteles/hoteles.component';
 import { AutosComponent } from './componentes/autos/autos.component';
+import { NoImagePipe } from './pipes/no-image.pipe';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { AutosComponent } from './componentes/autos/autos.component';
     FooterComponent,
     SliderComponent,
     HotelesComponent,
-    AutosComponent
+    AutosComponent,
+    NoImagePipe
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
